@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Inventory.Models.Operation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stockman.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vendor.Abbr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOfOper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OperDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpirationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoxNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shelf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateIn)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stockman.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vendor.Abbr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOfOper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Qty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OperDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpirationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoxNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shelf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateIn)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

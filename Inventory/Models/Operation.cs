@@ -23,7 +23,7 @@ namespace Inventory.Models
         public virtual int StockmanId { get; set; }
 
         public virtual Nullable<int> LocationId { get; set; }
-        public virtual Nullable<DateTime> DteIn { get; set; }
+        public virtual Nullable<DateTime> DateIn { get; set; }
         public virtual Vendor Vendor { get; set; }
         public virtual Stockman Stockman { get; set; }
         public virtual Product Product { get; set; }
