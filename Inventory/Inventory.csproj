@@ -203,7 +203,16 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InventoryR.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Manufacturer.cs" />
+    <Compile Include="Models\Operation.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Stockman.cs" />
+    <Compile Include="Models\TypeOfItems.cs" />
+    <Compile Include="Models\TypeOfRights.cs" />
+    <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
