@@ -26,5 +26,30 @@ namespace Inventory.Controllers
 
             return View();
         }
+
+        public ActionResult Dictionaries()
+        {
+            ViewBag.Message = "Dictionaries";
+            return View();
+        }
+
+        public ActionResult DictVendors()
+        {
+            ViewBag.Message = "Vendors";
+
+            return View();
+        }
+
+        public ActionResult DictProducts()
+        {
+            ViewBag.Message = "Products";
+            return View();
+        }
+
+        public ActionResult DictStockmen()
+        {
+            ViewBag.Message = "Stockmen";
+            return View();
+        }
     }
 }
