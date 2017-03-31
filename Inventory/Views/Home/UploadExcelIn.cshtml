@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "UploadExcelIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UploadExcelIn</h2>
+<div>
+    <ul>
+        @foreach (var item in ViewBag.listOfUPC)
+        {
+            <li>@item</li>
+        }
+    </ul>
+</div>
+<div>
+    <ul>
+        @foreach (Inventory.Models.qutOfAProd item in ViewBag.listOfUPCWithCount)
+        {
+            string s = item.UPC + " " + item.Qut.ToString();
+             <li>@s</li> 
+        }
+    </ul>
+</div>
+
+

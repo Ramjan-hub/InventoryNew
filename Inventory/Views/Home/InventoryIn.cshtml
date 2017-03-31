@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "InventoryIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>InventoryIn</h2>
+@using (Html.BeginForm("UploadExcelIn", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div>
+    <input type="file" name="1"/>
+</div>
+<div>
+    <input type="submit" name="Submit" value="Submit"/>
+ 
+</div>
+}
+
