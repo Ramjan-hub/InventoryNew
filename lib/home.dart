@@ -5,6 +5,13 @@ var textEditingController1 = TextEditingController();
 
 var textEditingController2 = TextEditingController();
 
+var searchController = TextEditingController();
+ Set searchList = {};
+
+String searchTx='';
+
+
+
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
 
@@ -25,7 +32,19 @@ class _MyWidgetState extends State<MyWidget> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: TextField(
+                  child: TextField( // Search TextField
+
+                    onChanged: (tx){
+                    searchTx=tx;
+                    setState(() {
+                      
+                    });
+                    },
+
+                    
+                                           
+                    controller: searchController,
+
                     decoration: InputDecoration(
                       prefixIcon:
                           const Icon(Icons.search), // Changed to prefixIcon
@@ -45,31 +64,29 @@ class _MyWidgetState extends State<MyWidget> {
                 ),
               ),
               ElevatedButton(
-               
                 onPressed: () {
                   addAlertShow(context);
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 213, 196, 255),
-                   
-    
-                    elevation:1,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-
-                    ),
+                  backgroundColor: const Color.fromARGB(255, 213, 196, 255),
+                  elevation: 1,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
                 child: const Row(
                   children: [
-
-                      Icon(Icons.add,
+                    Icon(
+                      Icons.add,
                       color: Colors.black,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 8),
+                      child: Text(
+                        'Add Material',
+                        style: TextStyle(color: Colors.black),
                       ),
-                  
-                     Padding(
-                       padding: EdgeInsets.only(left: 8),
-                       child: Text('Add Material',style: TextStyle(color: Colors.black),),
-                     ),
+                    ),
                   ],
                 ),
               ),
@@ -80,20 +97,47 @@ class _MyWidgetState extends State<MyWidget> {
 
           Expanded(
             child: ListView.builder(
-              itemCount: materialNameList.length,
+              itemCount: searchTx.isEmpty?materialNameList.length:searchList.length,
               itemBuilder: (context, index) {
-                return Materialitem(materialNameList.elementAt(index),
-                    unitList[index], index.toString(),
-                    onDelete:(){
-                      setState(() {
-                         materialNameList.remove(materialNameList.elementAt(index));
-                         unitList.removeAt(index);
-                         
-                      });
-                    
-                    });
+
+               late  String position=materialNameList.elementAt(index);
+              
+               searchList.add(position);
                
-                    
+               
+                if(searchTx.isEmpty){
+                      return Materialitem(materialNameList.elementAt(index),
+                      unitList[index], index.toString(), onDelete: () {
+                    setState(() {
+                      materialNameList
+                          .remove(materialNameList.elementAt(index));
+                      unitList.removeAt(index);
+                    });
+                  });
+                }
+              
+               
+
+                else if(position.toLowerCase().contains(searchTx.toLowerCase())){
+                 
+                  return Materialitem(searchList.elementAt(index),
+                      unitList[index], index.toString(), onDelete: () {
+                    setState(() {
+                      materialNameList
+                          .remove(materialNameList.elementAt(index));
+                      unitList.removeAt(index);
+                    });
+                  });
+
+                }
+                else{
+                  return const SizedBox.shrink();
+                }
+
+                
+               
+                  
+                
               },
             ),
           ),
