@@ -83,8 +83,16 @@ class _MyWidgetState extends State<MyWidget> {
               itemCount: materialNameList.length,
               itemBuilder: (context, index) {
                 return Materialitem(materialNameList.elementAt(index),
-                    unitList[index], index.toString());
-
+                    unitList[index], index.toString(),
+                    onDelete:(){
+                      setState(() {
+                         materialNameList.remove(materialNameList.elementAt(index));
+                         unitList.removeAt(index);
+                         
+                      });
+                    
+                    });
+               
                     
               },
             ),
